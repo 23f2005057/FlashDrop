@@ -144,6 +144,7 @@ FlashDrop uses Docker for local development environment setup.
 ```bash
 docker build -t flashdrop-dev .
 ---
+```
 
 ## 🧠 Software Design
 
