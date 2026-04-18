@@ -153,7 +153,7 @@ FlashDrop follows a peer-to-peer system design where both Android and Windows ap
 ---
 
 ### 🏗 Architecture Diagram
-![Architecture](design/architecture flashdrop.drawio.png)
+![Architecture Diagram](design/architecture%20flashdrop.drawio.png)
 
 The system uses a layered architecture where UI components interact with core modules responsible for discovery, transfer, and persistence. Communication happens directly over LAN using UDP (port 5005) for device discovery and TCP (port 5006) for file transfer.
 
