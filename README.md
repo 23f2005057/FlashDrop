@@ -143,3 +143,42 @@ FlashDrop uses Docker for local development environment setup.
 
 ```bash
 docker build -t flashdrop-dev .
+---
+
+## 🧠 Software Design
+
+FlashDrop follows a peer-to-peer system design where both Android and Windows applications act as equal nodes communicating over a local WiFi network. The system is divided into discovery and transfer layers using UDP and TCP respectively, ensuring fast and reliable communication without any central server.
+
+---
+
+### 🏗 Architecture Diagram
+![Architecture](docs/design/architecture.png)
+
+The system uses a layered architecture where UI components interact with core modules responsible for discovery, transfer, and persistence. Communication happens directly over LAN using UDP (port 5005) for device discovery and TCP (port 5006) for file transfer.
+
+---
+
+
+### 🧱 Component Design
+
+The system is divided into two main components:
+
+**Android Application**
+- Built using Kotlin and Jetpack Compose
+- Core modules: Discovery.kt, TransferEngine.kt, HistoryRepo.kt, Settings.kt
+- UI managed via MainViewModel using StateFlow
+
+**Windows Application**
+- Built using Python and CustomTkinter
+- Core modules: discovery.py, transfer.py, history.py, config.py
+- main.py initializes services and UI
+
+---
+
+### ⚙️ Design Decisions
+
+- **Peer-to-Peer Architecture** → Eliminates dependency on cloud or servers  
+- **UDP for Discovery** → Fast and lightweight device detection  
+- **TCP for Transfer** → Reliable, ordered file delivery  
+- **Chunk-based Streaming** → Efficient handling of large files  
+- **Layered Design** → Improves maintainability and scalability  
